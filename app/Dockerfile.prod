@@ -1,0 +1,17 @@
+FROM golang:1.18 AS builder
+
+WORKDIR /go/src
+
+RUN apt-get update && \
+    apt-get install -f upx -y
+
+COPY main.go .
+
+RUN go build -a -gcflags=all="-l -B" -ldflags="-w -s" main.go && \
+    upx --best --ultra-brute main
+
+FROM alpine:3.15.4
+
+WORKDIR /var/app
+COPY --from=builder /go/src/main .
+ENTRYPOINT [ "./main" ]

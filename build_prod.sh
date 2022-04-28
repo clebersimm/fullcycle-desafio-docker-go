@@ -1,0 +1,1 @@
+docker build -t clebersimm/codeeducation app -f app/Dockerfile.prod

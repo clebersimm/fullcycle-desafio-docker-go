@@ -1,0 +1,1 @@
+docker run --rm -it -v $(pwd)/app/:/go/src/ golang:1.18 bash
