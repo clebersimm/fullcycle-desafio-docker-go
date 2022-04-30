@@ -3,7 +3,7 @@ Curso Fullcycle 3.0
 
 Imagem dockerhub
 
-run
+run   
 docker run clebersimm/codeeducation
 
 output:
